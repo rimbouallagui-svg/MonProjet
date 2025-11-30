@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ObjectifsContr"
+      spacing="20" style="-fx-padding: 20;">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Gestion des Objectifs" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+        <Button text="+ Nouvel Objectif" onAction="#ajouterObjectif"
+                style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TabPane>
+        <Tab text="Épargne">
+            <TableView fx:id="tableEpargne">
+                <columns>
+                    <TableColumn text="Nom" />
+                    <TableColumn text="Montant cible" />
+                    <TableColumn text="Montant actuel" />
+                    <TableColumn text="Progression" />
+                    <TableColumn text="Date cible" />
+                    <TableColumn text="Actions" />
+                </columns>
+            </TableView>
+        </Tab>
+
+        <Tab text="Dettes">
+            <TableView fx:id="tableDettes">
+                <columns>
+                    <TableColumn text="Nom" />
+                    <TableColumn text="Montant restant" />
+                    <TableColumn text="Créancier" />
+                    <TableColumn text="Taux intérêt" />
+                    <TableColumn text="Actions" />
+                </columns>
+            </TableView>
+        </Tab>
+
+        <Tab text="Investissements">
+            <TableView fx:id="tableInvestissements">
+                <columns>
+                    <TableColumn text="Nom" />
+                    <TableColumn text="Type" />
+                    <TableColumn text="Montant investi" />
+                    <TableColumn text="Rendement attendu" />
+                    <TableColumn text="Actions" />
+                </columns>
+            </TableView>
+        </Tab>
+    </TabPane>
+</VBox>

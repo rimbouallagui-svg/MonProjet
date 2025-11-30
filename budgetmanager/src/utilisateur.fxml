@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.budget.controller.utilisateurcontroller"
+      spacing="20" alignment="TOP_CENTER"
+      style="-fx-padding: 20;">
+
+    <!-- 🌟 TITRE -->
+    <Label text="Gestion d'un Utilisateur"
+           style="-fx-font-size: 24; -fx-font-weight: bold;" />
+
+    <!-- 🔹 ID + Rôle -->
+    <GridPane hgap="15" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT"/>
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="ID :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="champId"
+                   promptText="Identifiant de l'utilisateur"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Rôle :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="champRole"
+                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    </GridPane>
+
+
+    <!-- ============================
+          TABLEAU DES COMPTES
+         ============================ -->
+    <TitledPane text="Comptes" expanded="false">
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Button text="+ Ajouter un compte"
+                    onAction="#ajouterCompte"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+
+            <TableView fx:id="tableComptes">
+                <columns>
+                    <TableColumn text="ID" />
+                    <TableColumn text="Solde" />
+                    <TableColumn text="Type" />
+                    <TableColumn text="Actions" />
+                </columns>
+            </TableView>
+        </VBox>
+    </TitledPane>
+
+
+    <!-- ============================
+          TABLEAU DES BUDGETS
+         ============================ -->
+    <TitledPane text="Budgets" expanded="false">
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Button text="+ Ajouter un budget"
+                    onAction="#ajouterBudget"
+                    style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+
+            <TableView fx:id="tableBudgets">
+                <columns>
+                    <TableColumn text="ID" />
+                    <TableColumn text="Catégorie" />
+                    <TableColumn text="Montant Limite" />
+                    <TableColumn text="Actions" />
+                </columns>
+            </TableView>
+        </VBox>
+    </TitledPane>
+
+
+    <!-- ============================
+          TABLEAU DES OBJECTIFS
+         ============================ -->
+    <TitledPane text="Objectifs" expanded="true">
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Button text="+ Ajouter un objectif"
+                    onAction="#ajouterObjectif"
+                    style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
+
+            <TableView fx:id="tableObjectifs">
+                <columns>
+                    <TableColumn text="ID" />
+                    <TableColumn text="Type" />
+                    <TableColumn text="Montant" />
+                    <TableColumn text="Statut" />
+                    <TableColumn text="Actions" />
+                </columns>
+            </TableView>
+        </VBox>
+    </TitledPane>
+
+
+    <!-- 🔘 BOUTONS D’ACTION -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Enregistrer"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"
+                onAction="#enregistrerUtilisateur"/>
+        <Button text="Annuler"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;"
+                onAction="#annuler"/>
+    </HBox>
+
+</VBox>

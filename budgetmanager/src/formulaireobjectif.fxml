@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.FormulaireObjectifController">
+
+    <headerText>
+        Créer un nouvel objectif
+    </headerText>
+
+    <content>
+        <VBox prefHeight="609.0" prefWidth="0.0" spacing="15">
+            <VBox spacing="5">
+                <Label text="Type d'objectif:" />
+            </VBox>
+            <CheckBox mnemonicParsing="false" text="Epargne" />
+            <CheckBox mnemonicParsing="false" text="Investissement" />
+            <CheckBox mnemonicParsing="false" text="Dette" />
+
+            <VBox spacing="5">
+                <Label text="Nom de l'objectif" />
+                <TextField fx:id="fieldNom" />
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Montant cible" />
+                <TextField fx:id="fieldMontantCible" />
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Date cible" />
+                <DatePicker fx:id="dateCible" />
+            </VBox>
+
+            <!-- Champs spécifiques selon le type d'objectif -->
+            <VBox fx:id="panelEpargne" spacing="5" visible="false">
+                <Label text="Taux d'épargne mensuel (%)" />
+                <TextField fx:id="fieldTauxEpargne" />
+            </VBox>
+
+            <VBox fx:id="panelDette" spacing="5" visible="false">
+                <Label text="Créancier" />
+                <TextField fx:id="fieldCreancier" />
+                <Label text="Taux d'intérêt (%)" />
+                <TextField fx:id="fieldTauxInteret" />
+            </VBox>
+
+            <VBox fx:id="panelInvestissement" spacing="5" visible="false">
+                <Label text="Type d'investissement" />
+                <ComboBox fx:id="comboTypeInvestissement" />
+                <Label text="Rendement attendu (%)" />
+                <TextField fx:id="fieldRendement" />
+            </VBox>
+        </VBox>
+    </content>
+</DialogPane>
